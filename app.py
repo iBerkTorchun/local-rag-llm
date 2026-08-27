@@ -1,6 +1,6 @@
 import atexit
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, render_template, request
 
 from rag_service import DEFAULT_TOP_K, RAGService
 
@@ -8,6 +8,11 @@ from rag_service import DEFAULT_TOP_K, RAGService
 app = Flask(__name__)
 rag_service = RAGService()
 atexit.register(rag_service.close)
+
+
+@app.get("/")
+def index():
+    return render_template("index.html")
 
 
 @app.get("/api/health")

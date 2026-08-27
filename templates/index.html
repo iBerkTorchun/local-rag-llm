@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ask grounded questions about the local project knowledge base.">
+    <title>Local Knowledge Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="page-shell header-content">
+        <div>
+          <h1>Local Knowledge Assistant</h1>
+          <p class="app-description">Ask questions about the local project knowledge base.</p>
+        </div>
+        <p class="api-status" id="api-status" data-state="checking" aria-live="polite">
+          <span class="status-mark" aria-hidden="true"></span>
+          <span id="api-status-text">Checking local API…</span>
+        </p>
+      </div>
+    </header>
+
+    <main class="page-shell app-main">
+      <section aria-labelledby="question-label">
+        <form id="question-form" novalidate>
+          <label class="question-label" id="question-label" for="question-input">
+            Ask the knowledge base
+          </label>
+          <textarea
+            id="question-input"
+            name="question"
+            rows="3"
+            aria-describedby="question-help question-validation"
+            required
+          ></textarea>
+          <div class="form-footer">
+            <p class="question-help" id="question-help">
+              Example: Why is SQLite suitable for this local project?
+            </p>
+            <button class="primary-button" id="submit-button" type="submit">Ask</button>
+          </div>
+          <p class="validation-message" id="question-validation" aria-live="polite" hidden></p>
+        </form>
+      </section>
+
+      <section
+        class="request-status-section"
+        id="request-status-section"
+        aria-labelledby="request-question-heading"
+        aria-busy="false"
+        hidden
+      >
+        <h2 class="section-label" id="request-question-heading">Question</h2>
+        <p class="submitted-question" id="pending-question"></p>
+        <p class="processing-status" id="processing-status" role="status">
+          Processing your question locally…
+        </p>
+      </section>
+
+      <article class="result-section" id="result-section" hidden>
+        <section class="result-question" aria-labelledby="result-question-heading">
+          <h2 class="section-label" id="result-question-heading">Question</h2>
+          <p class="submitted-question" id="result-question"></p>
+        </section>
+
+        <section class="answer-section" aria-labelledby="answer-heading">
+          <h2 id="answer-heading" tabindex="-1">Answer</h2>
+          <div class="answer-text" id="answer-text"></div>
+        </section>
+
+        <section class="sources-section" aria-labelledby="sources-heading">
+          <h2 id="sources-heading">Supporting sources</h2>
+          <ol class="source-list" id="source-list"></ol>
+        </section>
+      </article>
+
+      <section class="error-section" id="error-section" role="alert" aria-labelledby="error-heading" hidden>
+        <h2 id="error-heading" tabindex="-1">The request could not be completed</h2>
+        <p id="error-message"></p>
+        <button class="secondary-button" id="retry-button" type="button">Retry</button>
+      </section>
+
+      <p class="visually-hidden" id="live-status" role="status" aria-live="polite"></p>
+    </main>
+  </body>
+</html>
