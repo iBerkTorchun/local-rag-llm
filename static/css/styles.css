@@ -12,7 +12,7 @@
   --accent-hover: #105849;
   --error: #9f332c;
   --error-border: #d7a7a3;
-  --focus: #0b6fbe;
+  --focus: #0d6657;
   --content-width: 800px;
 }
 
@@ -121,7 +121,7 @@ h1 {
 }
 
 .app-main {
-  padding-block: 48px 80px;
+  padding-block: 40px 72px;
 }
 
 .question-label {
@@ -135,7 +135,8 @@ h1 {
 #question-input {
   display: block;
   width: 100%;
-  min-height: 104px;
+  height: 88px;
+  min-height: 88px;
   resize: vertical;
   padding: 14px 16px;
   border: 1px solid var(--border-strong);
