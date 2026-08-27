@@ -8,7 +8,7 @@ from chunking import chunk_text
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent
-DOCUMENTS_DIR = PROJECT_ROOT / "documents"
+KNOWLEDGE_BASE_DIR = PROJECT_ROOT / "knowledge_base"
 DATABASE_PATH = PROJECT_ROOT / "data" / "rag.db"
 MODEL_ALIAS = "qwen3-embedding-0.6b"
 
@@ -120,11 +120,13 @@ def main() -> None:
         print("[OK] Model loaded.")
 
         document_paths = sorted(
-            DOCUMENTS_DIR.glob("*.md"),
+            KNOWLEDGE_BASE_DIR.glob("*.md"),
             key=lambda path: path.name.casefold(),
         )
         if not document_paths:
-            raise RuntimeError(f"No Markdown documents found in {DOCUMENTS_DIR}.")
+            raise RuntimeError(
+                f"No Markdown documents found in {KNOWLEDGE_BASE_DIR}."
+            )
 
         chunk_records = collect_chunks(document_paths)
         chunk_texts = [content for _, _, content in chunk_records]

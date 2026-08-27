@@ -6,7 +6,7 @@ from pathlib import Path
 from foundry_local_sdk import Configuration, FoundryLocalManager
 
 
-PROJECT_ROOT = Path(__file__).resolve().parent
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATABASE_PATH = PROJECT_ROOT / "data" / "rag.db"
 MODEL_ALIAS = "qwen3-embedding-0.6b"
 DEFAULT_TOP_K = 3
