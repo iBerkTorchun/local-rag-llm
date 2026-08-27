@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Ask grounded questions about the local project knowledge base.">
     <title>Local Knowledge Assistant</title>
+    <script>
+      (() => {
+        const storageKey = "local-knowledge-theme";
+        let savedTheme = null;
+
+        try {
+          savedTheme = window.localStorage.getItem(storageKey);
+        } catch {
+          // The operating-system preference remains available if storage is blocked.
+        }
+
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+        const theme = savedTheme === "light" || savedTheme === "dark"
+          ? savedTheme
+          : systemTheme;
+
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
   </head>
@@ -15,18 +37,55 @@
           <h1>Local Knowledge Assistant</h1>
           <p class="app-description">Ask questions about the local project knowledge base.</p>
         </div>
-        <p class="api-status" id="api-status" data-state="checking" aria-live="polite">
-          <span class="status-mark" aria-hidden="true"></span>
-          <span id="api-status-text">Checking local API…</span>
-        </p>
+
+        <div class="header-actions">
+          <p class="api-status" id="api-status" data-state="checking" aria-live="polite">
+            <span class="status-mark" aria-hidden="true"></span>
+            <span id="api-status-text">Checking local API&hellip;</span>
+          </p>
+
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            type="button"
+            aria-label="Switch theme"
+            aria-pressed="false"
+            title="Switch theme"
+          >
+            <svg aria-hidden="true" viewBox="0 0 20 20" focusable="false">
+              <circle cx="10" cy="10" r="7"></circle>
+              <path d="M10 3a7 7 0 0 0 0 14Z"></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
 
     <main class="page-shell app-main">
-      <section aria-labelledby="question-label">
+      <section class="conversation-section" aria-labelledby="conversation-heading">
+        <h2 class="visually-hidden" id="conversation-heading">Conversation transcript</h2>
+
+        <div class="empty-state" id="empty-state">
+          <p class="empty-state-title">Ask the local knowledge base</p>
+          <p>
+            Questions are answered from the project's local documents, with supporting
+            sources available for inspection.
+          </p>
+        </div>
+
+        <ol
+          class="transcript"
+          id="transcript"
+          aria-label="Session conversation"
+          aria-busy="false"
+          hidden
+        ></ol>
+      </section>
+
+      <section class="composer-section" id="composer-section" aria-labelledby="question-label">
         <form id="question-form" novalidate>
           <label class="question-label" id="question-label" for="question-input">
-            Ask the knowledge base
+            Your question
           </label>
           <textarea
             id="question-input"
@@ -43,43 +102,6 @@
           </div>
           <p class="validation-message" id="question-validation" aria-live="polite" hidden></p>
         </form>
-      </section>
-
-      <section
-        class="request-status-section"
-        id="request-status-section"
-        aria-labelledby="request-question-heading"
-        aria-busy="false"
-        hidden
-      >
-        <h2 class="section-label" id="request-question-heading">Question</h2>
-        <p class="submitted-question" id="pending-question"></p>
-        <p class="processing-status" id="processing-status" role="status">
-          Processing your question locally…
-        </p>
-      </section>
-
-      <article class="result-section" id="result-section" hidden>
-        <section class="result-question" aria-labelledby="result-question-heading">
-          <h2 class="section-label" id="result-question-heading">Question</h2>
-          <p class="submitted-question" id="result-question"></p>
-        </section>
-
-        <section class="answer-section" aria-labelledby="answer-heading">
-          <h2 id="answer-heading" tabindex="-1">Answer</h2>
-          <div class="answer-text" id="answer-text"></div>
-        </section>
-
-        <section class="sources-section" aria-labelledby="sources-heading">
-          <h2 id="sources-heading">Supporting sources</h2>
-          <ol class="source-list" id="source-list"></ol>
-        </section>
-      </article>
-
-      <section class="error-section" id="error-section" role="alert" aria-labelledby="error-heading" hidden>
-        <h2 id="error-heading" tabindex="-1">The request could not be completed</h2>
-        <p id="error-message"></p>
-        <button class="secondary-button" id="retry-button" type="button">Retry</button>
       </section>
 
       <p class="visually-hidden" id="live-status" role="status" aria-live="polite"></p>
