@@ -199,7 +199,7 @@ h1 {
 }
 
 .app-main {
-  padding-block: 40px 72px;
+  padding-top: 40px;
 }
 
 .empty-state {
@@ -395,9 +395,17 @@ h1 {
   color: var(--text-secondary);
 }
 
+.composer-section {
+  padding-bottom: 72px;
+}
+
 .composer-section.has-transcript {
-  padding-top: 32px;
+  position: sticky;
+  z-index: 2;
+  bottom: 0;
+  padding: 20px 0 max(20px, env(safe-area-inset-bottom));
   border-top: 1px solid var(--border);
+  background: var(--page-background);
 }
 
 .question-label {
@@ -531,7 +539,7 @@ textarea:focus-visible,
   }
 
   .app-main {
-    padding-block: 32px 56px;
+    padding-top: 32px;
   }
 
   .conversation-turn {
@@ -555,8 +563,13 @@ textarea:focus-visible,
     margin-top: 16px;
   }
 
+  .composer-section {
+    padding-bottom: 56px;
+  }
+
   .composer-section.has-transcript {
-    padding-top: 28px;
+    padding-top: 16px;
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
   }
 
   .source-list {
