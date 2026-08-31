@@ -1,0 +1,160 @@
+[
+  {
+    "id": "rag_01",
+    "type": "answerable",
+    "question": "What sequence does the system follow to turn relevant documents into a model response?",
+    "expected_sources": [
+      "rag.md"
+    ],
+    "expected_concepts": [
+      "Retrieve relevant information from the document collection",
+      "Add the retrieved information to the model input as context",
+      "Generate an answer using that context"
+    ]
+  },
+  {
+    "id": "rag_02",
+    "type": "answerable",
+    "question": "How does the project's RAG approach make unsupported answers less likely?",
+    "expected_sources": [
+      "rag.md",
+      "prompt_engineering.md"
+    ],
+    "expected_concepts": [
+      "RAG helps reduce hallucinations",
+      "Answers are grounded in supplied documents or retrieved context"
+    ]
+  },
+  {
+    "id": "foundry_01",
+    "type": "answerable",
+    "question": "Why can this assistant run model inference without sending application data to a cloud model?",
+    "expected_sources": [
+      "foundry_local.md"
+    ],
+    "expected_concepts": [
+      "Foundry Local runs language models on the user's device",
+      "Application data does not need to be sent to a cloud model",
+      "The approach is suitable for an offline local Q&A assistant"
+    ]
+  },
+  {
+    "id": "foundry_02",
+    "type": "answerable",
+    "question": "Which local component offers both a model runtime and a catalog of optimized models?",
+    "expected_sources": [
+      "foundry_local.md"
+    ],
+    "expected_concepts": [
+      "Foundry Local",
+      "A lightweight runtime and SDK",
+      "A curated catalog of optimized models"
+    ]
+  },
+  {
+    "id": "embeddings_01",
+    "type": "answerable",
+    "question": "What representation allows the system to compare a question with passages by meaning?",
+    "expected_sources": [
+      "embeddings.md"
+    ],
+    "expected_concepts": [
+      "Text embeddings are numerical vector representations of meaning",
+      "Embeddings enable semantic similarity search"
+    ]
+  },
+  {
+    "id": "embeddings_02",
+    "type": "answerable",
+    "question": "Why should stored passages and new search questions be encoded with one embedding model?",
+    "expected_sources": [
+      "embeddings.md"
+    ],
+    "expected_concepts": [
+      "The same embedding model must be used for stored document chunks and incoming queries"
+    ]
+  },
+  {
+    "id": "sqlite_01",
+    "type": "answerable",
+    "question": "What makes SQLite practical for this local project without operating a database server?",
+    "expected_sources": [
+      "sqlite.md"
+    ],
+    "expected_concepts": [
+      "SQLite is lightweight, serverless, and self-contained",
+      "The database can be stored in one local file",
+      "No separate database server is required"
+    ]
+  },
+  {
+    "id": "sqlite_02",
+    "type": "answerable",
+    "question": "Which retrieval data does the application keep in its SQLite file?",
+    "expected_sources": [
+      "sqlite.md",
+      "architecture.md"
+    ],
+    "expected_concepts": [
+      "Document chunks",
+      "Embedding vectors"
+    ]
+  },
+  {
+    "id": "prompt_01",
+    "type": "answerable",
+    "question": "How should the assistant respond when its retrieved material cannot support an answer?",
+    "expected_sources": [
+      "prompt_engineering.md"
+    ],
+    "expected_concepts": [
+      "Do not invent unsupported information",
+      "Say that the information is not available when context is insufficient"
+    ]
+  },
+  {
+    "id": "architecture_01",
+    "type": "answerable",
+    "question": "How does a user's question travel through the local application before an answer is returned?",
+    "expected_sources": [
+      "architecture.md"
+    ],
+    "expected_concepts": [
+      "A client accepts the question",
+      "A server or pipeline coordinates retrieval and generation",
+      "SQLite stores chunks and embeddings",
+      "Foundry Local provides local inference",
+      "Retrieved chunks are supplied to the local LLM as augmented context"
+    ]
+  },
+  {
+    "id": "unknown_01",
+    "type": "unanswerable",
+    "question": "Who wrote the documents in this knowledge base?",
+    "expected_fallback": true
+  },
+  {
+    "id": "unknown_02",
+    "type": "unanswerable",
+    "question": "Which company owns this local assistant application?",
+    "expected_fallback": true
+  },
+  {
+    "id": "unknown_03",
+    "type": "unanswerable",
+    "question": "How many vacation days do users of this application receive?",
+    "expected_fallback": true
+  },
+  {
+    "id": "unknown_04",
+    "type": "unanswerable",
+    "question": "On what date is this application scheduled to be deployed?",
+    "expected_fallback": true
+  },
+  {
+    "id": "unknown_05",
+    "type": "unanswerable",
+    "question": "How much RAM and which processor are required to run the assistant?",
+    "expected_fallback": true
+  }
+]
