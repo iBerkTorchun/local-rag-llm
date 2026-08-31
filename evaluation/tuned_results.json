@@ -1,0 +1,562 @@
+{
+  "generated_at_utc": "2026-08-31T21:06:52.691576+00:00",
+  "configuration": {
+    "embedding_model_alias": "qwen3-embedding-0.6b",
+    "embedding_model_id": "qwen3-embedding-0.6b-generic-cpu:1",
+    "chat_model_alias": "phi-3.5-mini",
+    "chat_model_id": "Phi-3.5-mini-instruct-generic-cpu:2",
+    "knowledge_base_chunks": 18,
+    "embedding_dimension": 1024,
+    "top_k": 3,
+    "service_start_count": 1
+  },
+  "summary": {
+    "queries": 15,
+    "answerable_cases": 10,
+    "unanswerable_cases": 5,
+    "retrieval": {
+      "hit_at_1": {
+        "count": 9,
+        "total": 10,
+        "percentage": 90.0
+      },
+      "hit_at_3": {
+        "count": 10,
+        "total": 10,
+        "percentage": 100.0
+      }
+    },
+    "grounding": {
+      "fallback_success": {
+        "count": 4,
+        "total": 5,
+        "percentage": 80.0
+      }
+    },
+    "latency_seconds": {
+      "average": 10.626599,
+      "median": 10.506587,
+      "minimum": 9.323584,
+      "maximum": 14.407846
+    },
+    "case_errors": 0
+  },
+  "cleanup": {
+    "models_unloaded": true
+  },
+  "results": [
+    {
+      "id": "rag_01",
+      "type": "answerable",
+      "question": "What sequence does the system follow to turn relevant documents into a model response?",
+      "expected_sources": [
+        "rag.md"
+      ],
+      "expected_concepts": [
+        "Retrieve relevant information from the document collection",
+        "Add the retrieved information to the model input as context",
+        "Generate an answer using that context"
+      ],
+      "retrieved_sources": [
+        {
+          "source": "rag.md",
+          "chunk_index": 1,
+          "score": 0.710426977122443,
+          "content": "It follows Retrieve → Augment → Generate. Relevant information is first retrieved from a document collection.\n\nThe retrieved information is added to the model input as context. The model generates its answer using that context."
+        },
+        {
+          "source": "rag.md",
+          "chunk_index": 2,
+          "score": 0.669857548445729,
+          "content": "RAG helps reduce hallucinations and produces answers grounded in the supplied documents."
+        },
+        {
+          "source": "prompt_engineering.md",
+          "chunk_index": 1,
+          "score": 0.6322719544194227,
+          "content": "The model should be instructed to answer using the retrieved context.\n\nThe model should not invent unsupported information."
+        }
+      ],
+      "generated_answer": "Retrieve → Augment → Generate. Relevant information is first retrieved from documents, added to the model input as context, and then the model generates its answer using that context.",
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "latency_seconds": 10.917863
+    },
+    {
+      "id": "rag_02",
+      "type": "answerable",
+      "question": "How does the project's RAG approach make unsupported answers less likely?",
+      "expected_sources": [
+        "rag.md",
+        "prompt_engineering.md"
+      ],
+      "expected_concepts": [
+        "RAG helps reduce hallucinations",
+        "Answers are grounded in supplied documents or retrieved context"
+      ],
+      "retrieved_sources": [
+        {
+          "source": "rag.md",
+          "chunk_index": 2,
+          "score": 0.7495244380727253,
+          "content": "RAG helps reduce hallucinations and produces answers grounded in the supplied documents."
+        },
+        {
+          "source": "rag.md",
+          "chunk_index": 0,
+          "score": 0.6395839385069242,
+          "content": "# Retrieval-Augmented Generation\n\nRAG stands for Retrieval-Augmented Generation."
+        },
+        {
+          "source": "embeddings.md",
+          "chunk_index": 2,
+          "score": 0.6324046694986973,
+          "content": "The same embedding model must be used for stored document chunks and incoming queries. This project uses embeddings as the retrieval representation for RAG."
+        }
+      ],
+      "generated_answer": "The project's RAG approach uses embeddings as the retrieval representation, which helps in grounding answers in supplied documents, thereby reducing the likelihood of unsupported answers.",
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "latency_seconds": 11.475646
+    },
+    {
+      "id": "foundry_01",
+      "type": "answerable",
+      "question": "Why can this assistant run model inference without sending application data to a cloud model?",
+      "expected_sources": [
+        "foundry_local.md"
+      ],
+      "expected_concepts": [
+        "Foundry Local runs language models on the user's device",
+        "Application data does not need to be sent to a cloud model",
+        "The approach is suitable for an offline local Q&A assistant"
+      ],
+      "retrieved_sources": [
+        {
+          "source": "foundry_local.md",
+          "chunk_index": 2,
+          "score": 0.8280890804188237,
+          "content": "Applications can perform local model inference without sending application data to a cloud model. This makes Foundry Local suitable for an offline local Q&A assistant."
+        },
+        {
+          "source": "foundry_local.md",
+          "chunk_index": 0,
+          "score": 0.714498720050134,
+          "content": "# Foundry Local\n\nFoundry Local enables large language models to run locally on a user's device."
+        },
+        {
+          "source": "foundry_local.md",
+          "chunk_index": 1,
+          "score": 0.6474430751900951,
+          "content": "It provides a lightweight runtime and SDK.\n\nFoundry Local provides a curated catalog of optimized models."
+        }
+      ],
+      "generated_answer": "Foundry Local enables large language models to run locally on a user's device, which allows the assistant to perform model inference without sending application data to a cloud model.",
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "latency_seconds": 11.437333
+    },
+    {
+      "id": "foundry_02",
+      "type": "answerable",
+      "question": "Which local component offers both a model runtime and a catalog of optimized models?",
+      "expected_sources": [
+        "foundry_local.md"
+      ],
+      "expected_concepts": [
+        "Foundry Local",
+        "A lightweight runtime and SDK",
+        "A curated catalog of optimized models"
+      ],
+      "retrieved_sources": [
+        {
+          "source": "foundry_local.md",
+          "chunk_index": 1,
+          "score": 0.8075293481955461,
+          "content": "It provides a lightweight runtime and SDK.\n\nFoundry Local provides a curated catalog of optimized models."
+        },
+        {
+          "source": "foundry_local.md",
+          "chunk_index": 2,
+          "score": 0.7299521070899421,
+          "content": "Applications can perform local model inference without sending application data to a cloud model. This makes Foundry Local suitable for an offline local Q&A assistant."
+        },
+        {
+          "source": "foundry_local.md",
+          "chunk_index": 0,
+          "score": 0.7110070564641332,
+          "content": "# Foundry Local\n\nFoundry Local enables large language models to run locally on a user's device."
+        }
+      ],
+      "generated_answer": "Foundry Local",
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "latency_seconds": 9.462213
+    },
+    {
+      "id": "embeddings_01",
+      "type": "answerable",
+      "question": "What representation allows the system to compare a question with passages by meaning?",
+      "expected_sources": [
+        "embeddings.md"
+      ],
+      "expected_concepts": [
+        "Text embeddings are numerical vector representations of meaning",
+        "Embeddings enable semantic similarity search"
+      ],
+      "retrieved_sources": [
+        {
+          "source": "rag.md",
+          "chunk_index": 2,
+          "score": 0.5785209176480124,
+          "content": "RAG helps reduce hallucinations and produces answers grounded in the supplied documents."
+        },
+        {
+          "source": "prompt_engineering.md",
+          "chunk_index": 0,
+          "score": 0.5133564793229943,
+          "content": "# Prompt Engineering\n\nSystem messages and user messages have different roles."
+        },
+        {
+          "source": "embeddings.md",
+          "chunk_index": 1,
+          "score": 0.502340173398313,
+          "content": "Semantically similar text should have similar vector representations.\n\nEmbeddings enable semantic similarity search."
+        }
+      ],
+      "generated_answer": "Semantically similar text having similar vector representations.",
+      "hit_at_1": false,
+      "hit_at_3": true,
+      "latency_seconds": 9.323584
+    },
+    {
+      "id": "embeddings_02",
+      "type": "answerable",
+      "question": "Why should stored passages and new search questions be encoded with one embedding model?",
+      "expected_sources": [
+        "embeddings.md"
+      ],
+      "expected_concepts": [
+        "The same embedding model must be used for stored document chunks and incoming queries"
+      ],
+      "retrieved_sources": [
+        {
+          "source": "embeddings.md",
+          "chunk_index": 2,
+          "score": 0.7184400851802725,
+          "content": "The same embedding model must be used for stored document chunks and incoming queries. This project uses embeddings as the retrieval representation for RAG."
+        },
+        {
+          "source": "architecture.md",
+          "chunk_index": 2,
+          "score": 0.6902676494833427,
+          "content": "SQLite stores the local document chunks and embeddings, while Foundry Local provides local model inference. During a query, relevant chunks are retrieved and supplied to the local LLM as augmented context."
+        },
+        {
+          "source": "sqlite.md",
+          "chunk_index": 2,
+          "score": 0.6766963047825657,
+          "content": "We use SQLite to persist document chunks and their embedding vectors."
+        }
+      ],
+      "generated_answer": "The context suggests that the same embedding model is used for both stored document chunks and incoming queries to maintain consistency in the retrieval representation for RAG. This ensures that the local LLM receives relevant chunks as augmented context during a query. The information is derived from the sources: embeddings.md, architecture.md, and sqlite.md.",
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "latency_seconds": 14.407846
+    },
+    {
+      "id": "sqlite_01",
+      "type": "answerable",
+      "question": "What makes SQLite practical for this local project without operating a database server?",
+      "expected_sources": [
+        "sqlite.md"
+      ],
+      "expected_concepts": [
+        "SQLite is lightweight, serverless, and self-contained",
+        "The database can be stored in one local file",
+        "No separate database server is required"
+      ],
+      "retrieved_sources": [
+        {
+          "source": "sqlite.md",
+          "chunk_index": 1,
+          "score": 0.8292114942275798,
+          "content": "A SQLite database can be stored as a single local file. It does not require a separate database server.\n\nSQLite is suitable for local data storage in this project."
+        },
+        {
+          "source": "sqlite.md",
+          "chunk_index": 0,
+          "score": 0.8137576841942946,
+          "content": "# SQLite\n\nSQLite is lightweight, serverless, and self-contained."
+        },
+        {
+          "source": "sqlite.md",
+          "chunk_index": 2,
+          "score": 0.6540547462356915,
+          "content": "We use SQLite to persist document chunks and their embedding vectors."
+        }
+      ],
+      "generated_answer": "SQLite is lightweight, serverless, and self-contained, allowing it to be stored as a single local file without the need for a separate database server.",
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "latency_seconds": 10.958917
+    },
+    {
+      "id": "sqlite_02",
+      "type": "answerable",
+      "question": "Which retrieval data does the application keep in its SQLite file?",
+      "expected_sources": [
+        "sqlite.md",
+        "architecture.md"
+      ],
+      "expected_concepts": [
+        "Document chunks",
+        "Embedding vectors"
+      ],
+      "retrieved_sources": [
+        {
+          "source": "sqlite.md",
+          "chunk_index": 2,
+          "score": 0.7111729781768552,
+          "content": "We use SQLite to persist document chunks and their embedding vectors."
+        },
+        {
+          "source": "sqlite.md",
+          "chunk_index": 1,
+          "score": 0.6582381257478951,
+          "content": "A SQLite database can be stored as a single local file. It does not require a separate database server.\n\nSQLite is suitable for local data storage in this project."
+        },
+        {
+          "source": "sqlite.md",
+          "chunk_index": 0,
+          "score": 0.6429604970917824,
+          "content": "# SQLite\n\nSQLite is lightweight, serverless, and self-contained."
+        }
+      ],
+      "generated_answer": "The application keeps document chunks and their embedding vectors in its SQLite file.",
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "latency_seconds": 9.734597
+    },
+    {
+      "id": "prompt_01",
+      "type": "answerable",
+      "question": "How should the assistant respond when its retrieved material cannot support an answer?",
+      "expected_sources": [
+        "prompt_engineering.md"
+      ],
+      "expected_concepts": [
+        "Do not invent unsupported information",
+        "Say that the information is not available when context is insufficient"
+      ],
+      "retrieved_sources": [
+        {
+          "source": "prompt_engineering.md",
+          "chunk_index": 2,
+          "score": 0.8188261835853176,
+          "content": "When the supplied context is insufficient, the assistant should say that the information is not available. Prompt design affects how reliably the model follows retrieved information."
+        },
+        {
+          "source": "rag.md",
+          "chunk_index": 2,
+          "score": 0.761284004502616,
+          "content": "RAG helps reduce hallucinations and produces answers grounded in the supplied documents."
+        },
+        {
+          "source": "rag.md",
+          "chunk_index": 1,
+          "score": 0.6696831256320258,
+          "content": "It follows Retrieve → Augment → Generate. Relevant information is first retrieved from a document collection.\n\nThe retrieved information is added to the model input as context. The model generates its answer using that context."
+        }
+      ],
+      "generated_answer": "The assistant should state that the information is not available in the supplied context.",
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "latency_seconds": 10.506587
+    },
+    {
+      "id": "architecture_01",
+      "type": "answerable",
+      "question": "How does a user's question travel through the local application before an answer is returned?",
+      "expected_sources": [
+        "architecture.md"
+      ],
+      "expected_concepts": [
+        "A client accepts the question",
+        "A server or pipeline coordinates retrieval and generation",
+        "SQLite stores chunks and embeddings",
+        "Foundry Local provides local inference",
+        "Retrieved chunks are supplied to the local LLM as augmented context"
+      ],
+      "retrieved_sources": [
+        {
+          "source": "architecture.md",
+          "chunk_index": 1,
+          "score": 0.6612994298375519,
+          "content": "A client interface accepts the user's question.\n\nA server or pipeline layer orchestrates retrieval and generation."
+        },
+        {
+          "source": "foundry_local.md",
+          "chunk_index": 2,
+          "score": 0.6468634867919479,
+          "content": "Applications can perform local model inference without sending application data to a cloud model. This makes Foundry Local suitable for an offline local Q&A assistant."
+        },
+        {
+          "source": "foundry_local.md",
+          "chunk_index": 0,
+          "score": 0.5818164500363286,
+          "content": "# Foundry Local\n\nFoundry Local enables large language models to run locally on a user's device."
+        }
+      ],
+      "generated_answer": "The user's question is first accepted by the client interface. Then, the server or pipeline layer orchestrates the retrieval and generation processes. Finally, an answer is returned to the user.",
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "latency_seconds": 12.017017
+    },
+    {
+      "id": "unknown_01",
+      "type": "unanswerable",
+      "question": "Who wrote the documents in this knowledge base?",
+      "expected_fallback": true,
+      "retrieved_sources": [
+        {
+          "source": "rag.md",
+          "chunk_index": 2,
+          "score": 0.5984152061280409,
+          "content": "RAG helps reduce hallucinations and produces answers grounded in the supplied documents."
+        },
+        {
+          "source": "prompt_engineering.md",
+          "chunk_index": 1,
+          "score": 0.5062881371682911,
+          "content": "The model should be instructed to answer using the retrieved context.\n\nThe model should not invent unsupported information."
+        },
+        {
+          "source": "rag.md",
+          "chunk_index": 1,
+          "score": 0.4959843818612477,
+          "content": "It follows Retrieve → Augment → Generate. Relevant information is first retrieved from a document collection.\n\nThe retrieved information is added to the model input as context. The model generates its answer using that context."
+        }
+      ],
+      "generated_answer": "The information is not available in the supplied context.",
+      "fallback_success": true,
+      "latency_seconds": 9.790666
+    },
+    {
+      "id": "unknown_02",
+      "type": "unanswerable",
+      "question": "Which company owns this local assistant application?",
+      "expected_fallback": true,
+      "retrieved_sources": [
+        {
+          "source": "foundry_local.md",
+          "chunk_index": 0,
+          "score": 0.6455638181705139,
+          "content": "# Foundry Local\n\nFoundry Local enables large language models to run locally on a user's device."
+        },
+        {
+          "source": "foundry_local.md",
+          "chunk_index": 2,
+          "score": 0.6439273545204695,
+          "content": "Applications can perform local model inference without sending application data to a cloud model. This makes Foundry Local suitable for an offline local Q&A assistant."
+        },
+        {
+          "source": "rag.md",
+          "chunk_index": 2,
+          "score": 0.5512991796929763,
+          "content": "RAG helps reduce hallucinations and produces answers grounded in the supplied documents."
+        }
+      ],
+      "generated_answer": "The provided context does not contain information about the company that owns the local assistant application. The information is not available in the supplied context.",
+      "fallback_success": false,
+      "latency_seconds": 10.773772
+    },
+    {
+      "id": "unknown_03",
+      "type": "unanswerable",
+      "question": "How many vacation days do users of this application receive?",
+      "expected_fallback": true,
+      "retrieved_sources": [
+        {
+          "source": "foundry_local.md",
+          "chunk_index": 0,
+          "score": 0.5403069991858339,
+          "content": "# Foundry Local\n\nFoundry Local enables large language models to run locally on a user's device."
+        },
+        {
+          "source": "rag.md",
+          "chunk_index": 2,
+          "score": 0.5329647872440999,
+          "content": "RAG helps reduce hallucinations and produces answers grounded in the supplied documents."
+        },
+        {
+          "source": "foundry_local.md",
+          "chunk_index": 2,
+          "score": 0.522681619073102,
+          "content": "Applications can perform local model inference without sending application data to a cloud model. This makes Foundry Local suitable for an offline local Q&A assistant."
+        }
+      ],
+      "generated_answer": "The information is not available in the supplied context.",
+      "fallback_success": true,
+      "latency_seconds": 9.536066
+    },
+    {
+      "id": "unknown_04",
+      "type": "unanswerable",
+      "question": "On what date is this application scheduled to be deployed?",
+      "expected_fallback": true,
+      "retrieved_sources": [
+        {
+          "source": "foundry_local.md",
+          "chunk_index": 0,
+          "score": 0.5237642405528837,
+          "content": "# Foundry Local\n\nFoundry Local enables large language models to run locally on a user's device."
+        },
+        {
+          "source": "foundry_local.md",
+          "chunk_index": 2,
+          "score": 0.519654820265496,
+          "content": "Applications can perform local model inference without sending application data to a cloud model. This makes Foundry Local suitable for an offline local Q&A assistant."
+        },
+        {
+          "source": "prompt_engineering.md",
+          "chunk_index": 1,
+          "score": 0.47402846072025556,
+          "content": "The model should be instructed to answer using the retrieved context.\n\nThe model should not invent unsupported information."
+        }
+      ],
+      "generated_answer": "The information is not available in the supplied context.",
+      "fallback_success": true,
+      "latency_seconds": 9.435448
+    },
+    {
+      "id": "unknown_05",
+      "type": "unanswerable",
+      "question": "How much RAM and which processor are required to run the assistant?",
+      "expected_fallback": true,
+      "retrieved_sources": [
+        {
+          "source": "prompt_engineering.md",
+          "chunk_index": 2,
+          "score": 0.49851367246718903,
+          "content": "When the supplied context is insufficient, the assistant should say that the information is not available. Prompt design affects how reliably the model follows retrieved information."
+        },
+        {
+          "source": "foundry_local.md",
+          "chunk_index": 2,
+          "score": 0.4859448782374892,
+          "content": "Applications can perform local model inference without sending application data to a cloud model. This makes Foundry Local suitable for an offline local Q&A assistant."
+        },
+        {
+          "source": "rag.md",
+          "chunk_index": 2,
+          "score": 0.4835652928634096,
+          "content": "RAG helps reduce hallucinations and produces answers grounded in the supplied documents."
+        }
+      ],
+      "generated_answer": "The information is not available in the supplied context.",
+      "fallback_success": true,
+      "latency_seconds": 9.621426
+    }
+  ]
+}
