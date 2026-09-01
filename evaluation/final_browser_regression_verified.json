@@ -1,0 +1,130 @@
+{
+  "generatedAtUtc": "2026-09-01T10:18:09.820Z",
+  "browser": "Google Chrome headless via built-in DevTools Protocol",
+  "appUrl": "http://127.0.0.1:5000/",
+  "initial": {
+    "title": "Local Knowledge Assistant",
+    "health": "Local API available",
+    "emptyStateVisible": true,
+    "transcriptHidden": true,
+    "theme": "light",
+    "composerPosition": "static",
+    "horizontalOverflow": false
+  },
+  "desktopAnswered": {
+    "composerPosition": "sticky",
+    "horizontalOverflow": false
+  },
+  "collapsedSources": {
+    "buttonText": "3 sources",
+    "expanded": "false",
+    "regionHidden": true
+  },
+  "expandedSources": {
+    "expanded": "true",
+    "regionHidden": false,
+    "sourceCount": 3,
+    "sources": [
+      {
+        "source": "sqlite.md",
+        "metadata": "Chunk 1 · Similarity 0.8102",
+        "contentPresent": true
+      },
+      {
+        "source": "sqlite.md",
+        "metadata": "Chunk 0 · Similarity 0.7857",
+        "contentPresent": true
+      },
+      {
+        "source": "sqlite.md",
+        "metadata": "Chunk 2 · Similarity 0.6854",
+        "contentPresent": true
+      }
+    ]
+  },
+  "themeBefore": "light",
+  "themeAfter": {
+    "theme": "dark",
+    "saved": "dark",
+    "turns": 1
+  },
+  "transcript": {
+    "turns": 3,
+    "userLabels": [
+      "You",
+      "You",
+      "You"
+    ],
+    "assistantLabels": [
+      "Assistant",
+      "Assistant",
+      "Assistant"
+    ],
+    "questions": [
+      "Why is SQLite suitable for this local project?",
+      "What role does Foundry Local play in the application?",
+      "How many vacation days do users of this application receive?"
+    ],
+    "answers": [
+      "SQLite is suitable for this local project because it is lightweight, serverless, self-contained, and can be stored as a single local file without requiring a separate database server.",
+      "Foundry Local enables large language models to run locally on a user's device, providing a lightweight runtime and SDK, and offers a curated catalog of optimized models for local model inference.",
+      "The information is not available in the supplied context."
+    ],
+    "sourceButtons": 3,
+    "technicalErrors": 0,
+    "theme": "dark"
+  },
+  "mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "horizontalOverflow": false,
+    "composerPosition": "sticky",
+    "composerWidth": 358,
+    "expandedSourceReadable": true,
+    "theme": "dark"
+  },
+  "browserRequestSeconds": [
+    1.101,
+    0.666,
+    0.331
+  ],
+  "apiRequests": [
+    {
+      "method": "POST",
+      "body": {
+        "question": "Why is SQLite suitable for this local project?"
+      }
+    },
+    {
+      "method": "POST",
+      "body": {
+        "question": "What role does Foundry Local play in the application?"
+      }
+    },
+    {
+      "method": "POST",
+      "body": {
+        "question": "How many vacation days do users of this application receive?"
+      }
+    }
+  ],
+  "exceptions": [],
+  "consoleErrors": [],
+  "checks": {
+    "initialState": true,
+    "healthStatus": true,
+    "stickyComposer": true,
+    "sourcesCollapsedInitially": true,
+    "sourceDisclosure": true,
+    "themeTogglePreservesTranscript": true,
+    "sessionTranscript": true,
+    "groundedFallbackNormalAnswer": true,
+    "independentApiRequests": true,
+    "desktopNoOverflow": true,
+    "mobileNoOverflow": true,
+    "noConsoleBreakingErrors": true
+  },
+  "allChecksPassed": true
+}

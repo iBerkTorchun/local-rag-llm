@@ -2,9 +2,8 @@ import json
 import sqlite3
 from pathlib import Path
 
-from foundry_local_sdk import Configuration, FoundryLocalManager
-
 from chunking import chunk_text
+from foundry_setup import initialize_foundry_manager
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent
@@ -95,8 +94,7 @@ def store_chunks(
 
 
 def main() -> None:
-    FoundryLocalManager.initialize(Configuration(app_name="foundry_local_rag"))
-    manager = FoundryLocalManager.instance
+    manager = initialize_foundry_manager()
     print("[OK] SDK initialization succeeded.")
 
     model = manager.catalog.get_model(MODEL_ALIAS)

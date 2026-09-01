@@ -1,0 +1,192 @@
+{
+  "generated_at_utc": "2026-08-31T22:37:41.539125+00:00",
+  "sdk": {
+    "distribution": "foundry-local-sdk-winml",
+    "version": "1.2.4"
+  },
+  "configuration": {
+    "embedding_alias": "qwen3-embedding-0.6b",
+    "chat_alias": "phi-3.5-mini",
+    "top_k": 3,
+    "model_load_time_included": false,
+    "model_download_time_included": false,
+    "sqlite_read_scope": "Stored chunks are read once during service startup; retrieval_seconds measures per-request in-memory cosine ranking after query embedding."
+  },
+  "models": {
+    "embedding": {
+      "alias": "qwen3-embedding-0.6b",
+      "selected_id": "qwen3-embedding-0.6b-generic-cpu:1",
+      "selected_runtime": {
+        "device_type": "CPU",
+        "execution_provider": "CPUExecutionProvider"
+      },
+      "selected_cached": true,
+      "variants": [
+        {
+          "id": "qwen3-embedding-0.6b-generic-cpu:1",
+          "runtime": {
+            "device_type": "CPU",
+            "execution_provider": "CPUExecutionProvider"
+          },
+          "cached": true
+        }
+      ]
+    },
+    "chat": {
+      "alias": "phi-3.5-mini",
+      "selected_id": "Phi-3.5-mini-instruct-generic-cpu:2",
+      "selected_runtime": {
+        "device_type": "CPU",
+        "execution_provider": "CPUExecutionProvider"
+      },
+      "selected_cached": true,
+      "variants": [
+        {
+          "id": "Phi-3.5-mini-instruct-generic-cpu:2",
+          "runtime": {
+            "device_type": "CPU",
+            "execution_provider": "CPUExecutionProvider"
+          },
+          "cached": true
+        }
+      ]
+    }
+  },
+  "discoverable_execution_providers": [
+    {
+      "name": "CUDAExecutionProvider",
+      "is_registered": false
+    },
+    {
+      "name": "WebGpuExecutionProvider",
+      "is_registered": false
+    },
+    {
+      "name": "OpenVINOExecutionProvider",
+      "is_registered": false
+    },
+    {
+      "name": "NvTensorRTRTXExecutionProvider",
+      "is_registered": false
+    }
+  ],
+  "startup": {
+    "sqlite_chunk_load_seconds": 0.01232,
+    "chunk_count": 18,
+    "embedding_dimension": 1024,
+    "service_load_count": 1
+  },
+  "requests": [
+    {
+      "label": "A1",
+      "question": "Why is SQLite suitable for this local project?",
+      "embedding_seconds": 0.525447,
+      "retrieval_seconds": 0.002889,
+      "generation_seconds": 9.346082,
+      "other_pipeline_seconds": 2.1e-05,
+      "total_seconds": 9.874439,
+      "source_ids": [
+        "sqlite.md#1",
+        "sqlite.md#0",
+        "sqlite.md#2"
+      ],
+      "answer_sha256": "868fa30c1dacc8214254aeabd18f62aa7992acbeb408ddc089e49841a7802b6c",
+      "answer": "SQLite is suitable for this local project because it is lightweight, serverless, self-contained, and can be stored as a single local file without requiring a separate database server."
+    },
+    {
+      "label": "A2",
+      "question": "Why is SQLite suitable for this local project?",
+      "embedding_seconds": 1.313306,
+      "retrieval_seconds": 0.006682,
+      "generation_seconds": 9.285068,
+      "other_pipeline_seconds": 3.1e-05,
+      "total_seconds": 10.605086,
+      "source_ids": [
+        "sqlite.md#1",
+        "sqlite.md#0",
+        "sqlite.md#2"
+      ],
+      "answer_sha256": "868fa30c1dacc8214254aeabd18f62aa7992acbeb408ddc089e49841a7802b6c",
+      "answer": "SQLite is suitable for this local project because it is lightweight, serverless, self-contained, and can be stored as a single local file without requiring a separate database server."
+    },
+    {
+      "label": "A3",
+      "question": "Why is SQLite suitable for this local project?",
+      "embedding_seconds": 1.314153,
+      "retrieval_seconds": 0.006754,
+      "generation_seconds": 9.610532,
+      "other_pipeline_seconds": 2.3e-05,
+      "total_seconds": 10.931462,
+      "source_ids": [
+        "sqlite.md#1",
+        "sqlite.md#0",
+        "sqlite.md#2"
+      ],
+      "answer_sha256": "868fa30c1dacc8214254aeabd18f62aa7992acbeb408ddc089e49841a7802b6c",
+      "answer": "SQLite is suitable for this local project because it is lightweight, serverless, self-contained, and can be stored as a single local file without requiring a separate database server."
+    },
+    {
+      "label": "B1",
+      "question": "What role does Foundry Local play in the application?",
+      "embedding_seconds": 1.360858,
+      "retrieval_seconds": 0.003519,
+      "generation_seconds": 10.049015,
+      "other_pipeline_seconds": 2.3e-05,
+      "total_seconds": 11.413416,
+      "source_ids": [
+        "foundry_local.md#2",
+        "foundry_local.md#0",
+        "foundry_local.md#1"
+      ],
+      "answer_sha256": "6894ad7c54ee4e2b556186208da2e91dbc87a8a37cd7d9a91f41280c3d610424",
+      "answer": "Foundry Local enables large language models to run locally on a user's device, providing a lightweight runtime and SDK, and offers a curated catalog of optimized models for local inference."
+    },
+    {
+      "label": "B2",
+      "question": "What role does Foundry Local play in the application?",
+      "embedding_seconds": 1.227547,
+      "retrieval_seconds": 0.002684,
+      "generation_seconds": 10.01416,
+      "other_pipeline_seconds": 2.5e-05,
+      "total_seconds": 11.244416,
+      "source_ids": [
+        "foundry_local.md#2",
+        "foundry_local.md#0",
+        "foundry_local.md#1"
+      ],
+      "answer_sha256": "6894ad7c54ee4e2b556186208da2e91dbc87a8a37cd7d9a91f41280c3d610424",
+      "answer": "Foundry Local enables large language models to run locally on a user's device, providing a lightweight runtime and SDK, and offers a curated catalog of optimized models for local inference."
+    },
+    {
+      "label": "B3",
+      "question": "What role does Foundry Local play in the application?",
+      "embedding_seconds": 1.36926,
+      "retrieval_seconds": 0.003794,
+      "generation_seconds": 10.24047,
+      "other_pipeline_seconds": 2.4e-05,
+      "total_seconds": 11.613548,
+      "source_ids": [
+        "foundry_local.md#2",
+        "foundry_local.md#0",
+        "foundry_local.md#1"
+      ],
+      "answer_sha256": "6894ad7c54ee4e2b556186208da2e91dbc87a8a37cd7d9a91f41280c3d610424",
+      "answer": "Foundry Local enables large language models to run locally on a user's device, providing a lightweight runtime and SDK, and offers a curated catalog of optimized models for local inference."
+    }
+  ],
+  "question_summaries": {
+    "A": {
+      "first_total_seconds": 9.874439,
+      "repeat_average_total_seconds": 10.768274,
+      "all_average_total_seconds": 10.470329
+    },
+    "B": {
+      "first_total_seconds": 11.413416,
+      "repeat_average_total_seconds": 11.428982,
+      "all_average_total_seconds": 11.423793
+    }
+  },
+  "cleanup": {
+    "models_unloaded": true
+  }
+}

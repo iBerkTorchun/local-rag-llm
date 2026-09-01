@@ -4,7 +4,7 @@ import sqlite3
 from pathlib import Path
 from typing import TypedDict
 
-from foundry_local_sdk import Configuration, FoundryLocalManager
+from foundry_setup import initialize_foundry_manager
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent
@@ -114,10 +114,7 @@ class RAGService:
             return
 
         try:
-            FoundryLocalManager.initialize(
-                Configuration(app_name="foundry_local_rag")
-            )
-            self._manager = FoundryLocalManager.instance
+            self._manager = initialize_foundry_manager()
             print("[OK] SDK initialization succeeded.")
 
             self._embedding_model = self._manager.catalog.get_model(
